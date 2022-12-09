@@ -12,7 +12,7 @@ function newTail($head, $tail) {
     // for each step, we need to determine where to move the tail based on the head
     // same axis case - x
     if ($hx == $tx) {
-        // move the tail closer by the number of spaces it is offet
+        // move the tail closer if it is 2 away
         // the head and tail are offset by $diff
         $diff = $ty - $hy;
         if (abs($diff) == 2) {
@@ -31,9 +31,10 @@ function newTail($head, $tail) {
     // diagonal case
     $xdiff = $tx - $hx;
     $ydiff = $ty - $hy;
-    // one diff will be 1 and one diff will be 2
+    // one diff will be 1 and one diff maybe off by 2
     // however, we don't really care
     // we just need to move it cloaser by 1 in both directions
+    // if one axis is off by two
     if (abs($xdiff) == 2 || abs($ydiff) == 2) {
         $tx += $xdiff > 0 ? -1 : 1;
         $ty += $ydiff > 0 ? -1 : 1;
